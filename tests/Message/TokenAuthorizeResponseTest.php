@@ -4,7 +4,7 @@ namespace Omnipay\SagePay\Message;
 
 use Omnipay\Tests\TestCase;
 
-class ServerAuthorizeResponseTest extends TestCase
+class TokenAuthorizeResponseTest extends TestCase
 {
     public function setUp()
     {
