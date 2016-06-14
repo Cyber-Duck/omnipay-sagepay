@@ -51,16 +51,15 @@ class TokenCompleteAuthorizeRequest extends \Omnipay\SagePay\Message\ServerCompl
         // we are using Token Method and DEFERRED Payments which are manually
         // checked by a human at the other end
 
-//        if (strtolower($this->httpRequest->request->get('VPSSignature')) !== $signature) {
-//            error_log('-------TokenCompleteAuthorizeRequest--------');
-//            error_log('Sig data '.print_r($signaturedata, true));
-//            error_log('Sig to compare '.$signature);
-//            error_log('Sig to Match '
-//            .strtolower($this->httpRequest->request->get('VPSSignature')));
-//            error_log('-------END TokenCompleteAuthorizeRequest--------');
-//            throw new \Omnipay\Common\Exception\InvalidResponseException;
-//        }
+        if (strtolower($this->httpRequest->request->get('VPSSignature')) !== $signature) {
+            $debug = '';
+            $debug .= 'Incoming Sig. ' . print_r($signaturedata, true);
+            $debug .= 'VPSSignature ' . print_r($this->httpRequest->request->get('VPSSignature'), true);
+
+            throw new \Omnipay\Common\Exception\InvalidResponseException();
+        }
 
         return $this->httpRequest->request->all();
     }
+
 }
