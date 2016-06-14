@@ -26,27 +26,32 @@ class TokenGateway extends \Omnipay\SagePay\ServerGateway
 
     public function authorize(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\SagePay\Message\TokenAuthorizeRequest', $parameters);
+        $className = '\Omnipay\SagePay\Message\TokenAuthorizeRequest';
+        return $this->createRequest($className, $parameters);
     }
 
     public function completeAuthorize(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\SagePay\Message\TokenCompleteAuthorizeRequest', $parameters);
+        $className = '\Omnipay\SagePay\Message\TokenCompleteAuthorizeRequest';
+        return $this->createRequest($className, $parameters);
     }
 
     public function purchase(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\SagePay\Message\TokenPurchaseRequest', $parameters);
+        $className = '\Omnipay\SagePay\Message\TokenPurchaseRequest';
+        return $this->createRequest($className, $parameters);
     }
 
     public function capture(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\SagePay\Message\TokenRequest', $parameters);
+        $className = '\Omnipay\SagePay\Message\TokenRequest';
+        return $this->createRequest($className, $parameters);
     }
 
     public function refund(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\SagePay\Message\TokenRefundRequest', $parameters);
+        $className = '\Omnipay\SagePay\Message\TokenRefundRequest';
+        return $this->createRequest($className, $parameters);
     }
 
 }
