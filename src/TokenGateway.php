@@ -1,7 +1,8 @@
 <?php
 
 /**
- * TODO: Variation of the Direct Gateway, possibly factory
+ * @see http://www.sagepay.co.uk/support/12/36/sage-pay-token-system-understanding-the-process
+ * TODO: Variation of the Direct Gateway, possibly via factory method
  * 
  * @category Token_Integration_Method
  * @package Omnipaysagepay
