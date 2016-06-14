@@ -19,6 +19,7 @@ class TokenAuthorizeRequestTest extends TestCase
                     'card' => $this->getValidCard(),
                     'returnUrl' => 'https://www.example.com/return',
                     'notifyUrl' => 'https://www.example.com/notify',
+                    'profile' => 'LOW',
                 )
         );
     }
