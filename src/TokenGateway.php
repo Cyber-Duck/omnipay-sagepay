@@ -44,7 +44,7 @@ class TokenGateway extends \Omnipay\SagePay\ServerGateway
 
     public function capture(array $parameters = array())
     {
-        $className = '\Omnipay\SagePay\Message\TokenRequest';
+        $className = '\Omnipay\SagePay\Message\TokenCaptureRequest';
         return $this->createRequest($className, $parameters);
     }
 
