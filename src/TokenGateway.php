@@ -6,10 +6,6 @@
  */
 namespace Omnipay\SagePay;
 
-//use \Omnipay\SagePay\Message\TokenAuthorizeRequest;
-//use \Omnipay\SagePay\Message\TokenCompleteAuthorizeRequest;
-//use \Omnipay\SagePay\Message\TokenPurchaseRequest;
-
 class TokenGateway extends \Omnipay\SagePay\ServerGateway {
 
     public function getName() {
