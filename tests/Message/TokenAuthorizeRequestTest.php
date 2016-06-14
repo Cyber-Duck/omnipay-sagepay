@@ -39,10 +39,4 @@ class TokenAuthorizeRequestTest extends TestCase
         $this->assertSame('https://www.example.com/notify', $data['NotificationURL']);
         $this->assertSame('LOW', $data['Profile']);
     }
-
-    public function testCreateResponse()
-    {   $response = $this->request->createResponse($this->request->getData());
-        $this->assertInstanceOf('\Omnipay\SagePay\Message\TokenAuthorizeResponse', $this->createResponse());
-    }
-
 }
