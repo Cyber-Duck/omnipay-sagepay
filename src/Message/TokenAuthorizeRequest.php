@@ -28,5 +28,4 @@ class TokenAuthorizeRequest extends \Omnipay\SagePay\Message\ServerAuthorizeRequ
     {
         return $this->response = new TokenAuthorizeResponse($this, $data);
     }
-
 }
