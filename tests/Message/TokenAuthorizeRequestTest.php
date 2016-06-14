@@ -13,13 +13,13 @@ class TokenAuthorizeRequestTest extends TestCase
 
         $this->request = new TokenAuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
-        array(
-        'amount' => '12.00',
-        'transactionId' => '123',
-        'card' => $this->getValidCard(),
-        'returnUrl' => 'https://www.example.com/return',
-        'notifyUrl' => 'https://www.example.com/notify',
-        )
+                array(
+                    'amount' => '12.00',
+                    'transactionId' => '123',
+                    'card' => $this->getValidCard(),
+                    'returnUrl' => 'https://www.example.com/return',
+                    'notifyUrl' => 'https://www.example.com/notify',
+                )
         );
     }
 
