@@ -8,7 +8,7 @@ use Mockery as m;
 class TokenCompleteAuthorizeResponseTest extends TestCase
 {
 
-    public function testServerCompleteAuthorizeResponseSuccess()
+    public function testTokenCompleteAuthorizeResponseSuccess()
     {
         $response = new TokenCompleteAuthorizeResponse(
                 $this->getMockRequest(), array(
@@ -34,18 +34,17 @@ class TokenCompleteAuthorizeResponseTest extends TestCase
 
         $this->getMockRequest()->shouldReceive('getTransactionId')->once()->andReturn('123');
         $this->getMockRequest()->shouldReceive('getTransactionReference')->once()->andReturn('{"SecurityKey":"JEUPDN1N7E","TxAuthNo":"4255","VPSTxId":"{F955C22E-F67B-4DA3-8EA3-6DAC68FA59D2}","VendorTxCode":"438791"}');
-
         
-        //TODO: Asset Token
+        //TODO: Assert Token
         $this->assertTrue($response->isSuccessful());
         $this->assertFalse($response->isRedirect());
         $this->assertSame('{"SecurityKey":"JEUPDN1N7E","TxAuthNo":"b","VPSTxId":"{F955C22E-F67B-4DA3-8EA3-6DAC68FA59D2}","VendorTxCode":"123"}', $response->getTransactionReference());
         $this->assertNull($response->getMessage());
     }
 
-    public function testServerCompleteAuthorizeResponseFailure()
+    public function testTokenCompleteAuthorizeResponseFailure()
     {
-        $response = new ServerCompleteAuthorizeresponse($this->getMockRequest(), array('Status' => 'INVALID'));
+        $response = new TokenCompleteAuthorizeresponse($this->getMockRequest(), array('Status' => 'INVALID'));
 
         $this->assertFalse($response->isSuccessful());
         $this->assertFalse($response->isRedirect());
@@ -55,7 +54,7 @@ class TokenCompleteAuthorizeResponseTest extends TestCase
 
     public function testConfirm()
     {
-        $response = m::mock('\Omnipay\SagePay\Message\ServerCompleteAuthorizeResponse')->makePartial();
+        $response = m::mock('\Omnipay\SagePay\Message\TokenCompleteAuthorizeResponse')->makePartial();
         $response->shouldReceive('sendResponse')->once()->with('OK', 'https://www.example.com/', 'detail');
 
         $response->confirm('https://www.example.com/', 'detail');
@@ -63,7 +62,7 @@ class TokenCompleteAuthorizeResponseTest extends TestCase
 
     public function testError()
     {
-        $response = m::mock('\Omnipay\SagePay\Message\ServerCompleteAuthorizeResponse')->makePartial();
+        $response = m::mock('\Omnipay\SagePay\Message\TokenCompleteAuthorizeResponse')->makePartial();
         $response->shouldReceive('sendResponse')->once()->with('ERROR', 'https://www.example.com/', 'detail');
 
         $response->error('https://www.example.com/', 'detail');
@@ -71,7 +70,7 @@ class TokenCompleteAuthorizeResponseTest extends TestCase
 
     public function testInvalid()
     {
-        $response = m::mock('\Omnipay\SagePay\Message\ServerCompleteAuthorizeResponse')->makePartial();
+        $response = m::mock('\Omnipay\SagePay\Message\TokenCompleteAuthorizeResponse')->makePartial();
         $response->shouldReceive('sendResponse')->once()->with('INVALID', 'https://www.example.com/', 'detail');
 
         $response->invalid('https://www.example.com/', 'detail');
@@ -79,7 +78,7 @@ class TokenCompleteAuthorizeResponseTest extends TestCase
 
     public function testSendResponse()
     {
-        $response = m::mock('\Omnipay\SagePay\Message\ServerCompleteAuthorizeResponse')->makePartial();
+        $response = m::mock('\Omnipay\SagePay\Message\TokenCompleteAuthorizeResponse')->makePartial();
         $response->shouldReceive('exitWith')->once()->with("Status=FOO\r\nRedirectUrl=https://www.example.com/");
 
         $response->sendResponse('FOO', 'https://www.example.com/');
@@ -87,7 +86,7 @@ class TokenCompleteAuthorizeResponseTest extends TestCase
 
     public function testSendResponseDetail()
     {
-        $response = m::mock('\Omnipay\SagePay\Message\ServerCompleteAuthorizeResponse')->makePartial();
+        $response = m::mock('\Omnipay\SagePay\Message\TokenCompleteAuthorizeResponse')->makePartial();
         $response->shouldReceive('exitWith')->once()->with("Status=FOO\r\nRedirectUrl=https://www.example.com/\r\nStatusDetail=Bar");
 
         $response->sendResponse('FOO', 'https://www.example.com/', 'Bar');
