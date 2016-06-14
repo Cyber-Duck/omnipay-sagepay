@@ -41,7 +41,7 @@ class TokenAuthorizeRequestTest extends TestCase
     }
 
     public function testCreateResponse()
-    {   $response = $this->createResponse($this->request->getData());
+    {   $response = $this->request->createResponse($this->request->getData());
         $this->assertInstanceOf('\Omnipay\SagePay\Message\TokenAuthorizeResponse', $this->createResponse());
     }
 
