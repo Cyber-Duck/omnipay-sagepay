@@ -27,11 +27,14 @@ class TokenAuthorizeRequestTest extends TestCase
         $this->assertSame('NORMAL', $this->request->getProfile());
     }
 
-    public function getData()
+    public function testGetData()
     {
         $data = $this->request->getData();
 
+        $this->assertSame(1, $data['CreateToken']);
+        $this->assertSame(1, $data['StoreToken']);
         $this->assertSame('https://www.example.com/return', $data['NotificationURL']);
         $this->assertSame('LOW', $data['Profile']);
     }
+
 }
