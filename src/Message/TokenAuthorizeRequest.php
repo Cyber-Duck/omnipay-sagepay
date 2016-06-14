@@ -25,9 +25,6 @@ class TokenAuthorizeRequest extends \Omnipay\SagePay\Message\ServerAuthorizeRequ
         $data['NotificationURL'] = $this->getNotifyUrl();
         $data['RedirectURL'] = $this->getReturnUrl();
         $data['Profile'] = $this->getProfile();
-//        \Debug::dump($data);
-//        die();
         return $data;
     }
-
 }

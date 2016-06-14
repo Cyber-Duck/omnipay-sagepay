@@ -45,13 +45,18 @@ class TokenCompleteAuthorizeRequest extends \Omnipay\SagePay\Message\ServerCompl
         // validate VPSSignature
         $signature = strtolower(md5($signaturedata));
 
-        //TODO: These signatures never match because the returned signature contains a token we don't know about before authorise
-        // ... were not to bothered about the unlikely event of a forgery since we are using Token Method and DEFERRED Payments
+        //TODO: These signatures never match because the returned signature 
+        // contains a token we don't know about before authorise
+        // were not to bothered about the unlikely event of a forgery since 
+        // we are using Token Method and DEFERRED Payments which are manually
+        // checked by a human at the other end
+        // 
 //        if (strtolower($this->httpRequest->request->get('VPSSignature')) !== $signature) {
 //            error_log('-------TokenCompleteAuthorizeRequest--------');
 //            error_log('Sig data '.print_r($signaturedata, true));
 //            error_log('Sig to compare '.$signature);
-//            error_log('Sig to Match '.strtolower($this->httpRequest->request->get('VPSSignature')));
+//            error_log('Sig to Match '
+//            .strtolower($this->httpRequest->request->get('VPSSignature')));
 //            error_log('-------END TokenCompleteAuthorizeRequest--------');
 //            throw new \Omnipay\Common\Exception\InvalidResponseException;
 //        }
