@@ -8,7 +8,9 @@ class TokenCompleteAuthorizeRequest extends \Omnipay\SagePay\Message\ServerCompl
     protected function getBaseData()
     {
         $data = parent::getBaseData();
-        $data['VPSProtocol'] = '3.00';
+        /**
+         * Modified here to create token and store token
+         */
         $data['CreateToken'] = 1;
         $data['StoreToken'] = 1;
         return $data;
@@ -45,18 +47,12 @@ class TokenCompleteAuthorizeRequest extends \Omnipay\SagePay\Message\ServerCompl
         // validate VPSSignature
         $signature = strtolower(md5($signaturedata));
 
-        //TODO: These signatures never match because the returned signature
-        // contains a token we don't know about before authorise
-        // were not to bothered about the unlikely event of a forgery since
-        // we are using Token Method and DEFERRED Payments which are manually
-        // checked by a human at the other end
-
         if (strtolower($this->httpRequest->request->get('VPSSignature')) !== $signature) {
             $debug = '';
             $debug .= 'Incoming Sig. ' . print_r($signaturedata, true);
             $debug .= 'VPSSignature ' . print_r($this->httpRequest->request->get('VPSSignature'), true);
 
-            throw new \Omnipay\Common\Exception\InvalidResponseException();
+            throw new \Omnipay\Common\Exception\InvalidResponseException($debug);
         }
 
         return $this->httpRequest->request->all();
