@@ -13,12 +13,13 @@ class TokenAuthorizeRequestTest extends TestCase
 
         $this->request = new TokenAuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
-                array(
-                    'amount' => '12.00',
-                    'transactionId' => '123',
-                    'card' => $this->getValidCard(),
-                    'returnUrl' => 'https://www.example.com/return',
-                )
+        array(
+        'amount' => '12.00',
+        'transactionId' => '123',
+        'card' => $this->getValidCard(),
+        'returnUrl' => 'https://www.example.com/return',
+        'notifyUrl' => 'https://www.example.com/notify',
+        )
         );
     }
 
@@ -34,7 +35,9 @@ class TokenAuthorizeRequestTest extends TestCase
 
         $this->assertSame(1, $data['CreateToken']);
         $this->assertSame(1, $data['StoreToken']);
-        $this->assertSame('https://www.example.com/return', $data['NotificationURL']);
+        $this->assertSame('https://www.example.com/notify', $data['NotificationURL']);
+
         $this->assertSame('LOW', $data['Profile']);
     }
+
 }
