@@ -9,6 +9,7 @@
   * @link https://github.com/llincoln/omnipay-sagepay
  */
 namespace Omnipay\SagePay;
+
 /**
  * Variation of the Server Gateway
  * 
@@ -46,4 +47,5 @@ class TokenGateway extends \Omnipay\SagePay\ServerGateway
         return $this->createRequest('\Omnipay\SagePay\Message\TokenRefundRequest', $parameters);
     }
 
+    
 }
