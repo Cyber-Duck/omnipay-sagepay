@@ -17,6 +17,7 @@ class TokenAuthorizeRequestTest extends TestCase
                     'amount' => '12.00',
                     'transactionId' => '123',
                     'card' => $this->getValidCard(),
+                    'returnUrl' => 'https://www.example.com/return',
                 )
         );
     }
@@ -36,5 +37,4 @@ class TokenAuthorizeRequestTest extends TestCase
         $this->assertSame('https://www.example.com/return', $data['NotificationURL']);
         $this->assertSame('LOW', $data['Profile']);
     }
-
 }
