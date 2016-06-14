@@ -61,5 +61,4 @@ class TokenCompleteAuthorizeRequest extends \Omnipay\SagePay\Message\ServerCompl
 
         return $this->httpRequest->request->all();
     }
-
 }
