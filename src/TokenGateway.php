@@ -18,7 +18,7 @@ namespace Omnipay\SagePay;
  */
 class TokenGateway extends \Omnipay\SagePay\ServerGateway
 {
-
+    
     public function getName()
     {
         return 'Sage Pay Server/Token';
@@ -53,5 +53,4 @@ class TokenGateway extends \Omnipay\SagePay\ServerGateway
         $className = '\Omnipay\SagePay\Message\TokenRefundRequest';
         return $this->createRequest($className, $parameters);
     }
-
 }
