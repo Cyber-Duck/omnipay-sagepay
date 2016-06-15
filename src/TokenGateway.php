@@ -2,7 +2,7 @@
 
 /**
  * @see http://www.sagepay.co.uk/support/12/36/sage-pay-token-system-understanding-the-process
- * @see http://www.sagepay.co.uk/file/1171/download-document/sagepaytokensystemprotocolandintegrationguidelinev3.0_0.pdf?token=GXpf7n__3L02DXmGhAHyz3GylFFCH-0bvAkiCseZm3A
+ * @see http://www.sagepay.co.uk/file/1171/download-document/sagepaytokensystemprotocolandintegrationguidelinev3.0_0.pdf
  * 
  * @category Token_Integration_Method
  * @package Omnipaysagepay
