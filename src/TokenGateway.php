@@ -2,11 +2,11 @@
 
 /**
  * @see http://www.sagepay.co.uk/support/12/36/sage-pay-token-system-understanding-the-process
- * TODO: Variation of the Direct Gateway, possibly via factory method
+ * @see http://www.sagepay.co.uk/file/1171/download-document/sagepaytokensystemprotocolandintegrationguidelinev3.0_0.pdf?token=GXpf7n__3L02DXmGhAHyz3GylFFCH-0bvAkiCseZm3A
  * 
  * @category Token_Integration_Method
  * @package Omnipaysagepay
- * @author llincoln <buddhalincoln@gmail.com>
+ * @author Luke Lincoln <buddhalincoln at gmail.com>
  * @license https://raw.githubusercontent.com/llincoln/omnipay-sagepay/master/LICENSE dwtful
  * @link https://github.com/llincoln/omnipay-sagepay
  */
@@ -15,6 +15,13 @@ namespace Omnipay\SagePay;
 
 /**
  * Variation of the Server Gateway
+ * Inspired by:
+ * 
+ * Need to use this in the wild
+ * 
+ * https://github.com/thephpleague/omnipay-sagepay/issues/14
+ * 
+ * https://github.com/thephpleague/omnipay-sagepay/issues/61
  * 
  */
 class TokenGateway extends \Omnipay\SagePay\ServerGateway
